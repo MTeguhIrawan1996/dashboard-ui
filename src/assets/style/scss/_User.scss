@@ -1,0 +1,27 @@
+.user {
+  .header-wrapper {
+    background-color: $gray-100;
+    padding: 10px;
+  }
+  .header-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-search-item {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    height: 30px;
+    border-radius: 5px;
+    .header-search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  }
+}
