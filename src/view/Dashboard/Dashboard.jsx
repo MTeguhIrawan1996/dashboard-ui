@@ -5,7 +5,7 @@ import Analytic from "./Analytic";
 
 const Dashboard = () => {
   return (
-    <section className="container dashboard">
+    <div className="dashboard">
       <div className="dashboard-wrapper">
         <div className="title">
           <h1>Dashboard</h1>
@@ -153,7 +153,7 @@ const Dashboard = () => {
         </div>
       </div>
       <Analytic />
-    </section>
+    </div>
   );
 };
 

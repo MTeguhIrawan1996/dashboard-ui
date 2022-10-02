@@ -4,8 +4,9 @@ const Dashboard = React.lazy(() => import("./view/Dashboard/Dashboard"));
 const UserManagement = React.lazy(() =>
   import("./view/UserManagement/UserManagement")
 );
+// const Tab1 = React.lazy(() => import("./view/UserManagement/Tab1"));
 
-const routes = [
+export const routes = [
   { path: "/", exact: true, name: "Home" },
   { path: "/dashboard", name: "Dashboard", element: Dashboard },
   {
@@ -15,4 +16,4 @@ const routes = [
   },
 ];
 
-export default routes;
+// export const routesTab = [{ path: "/user/tab1", name: "Tab1", element: Tab1 }];

@@ -12695,7 +12695,7 @@ textarea.form-control-lg {
 }
 
 .dashboard {
-  padding: 0px 10px;
+  padding: 0px 30px;
 }
 .dashboard .dashboard-wrapper {
   display: flex;
@@ -12754,6 +12754,9 @@ textarea.form-control-lg {
   font-weight: 600;
 }
 
+.user {
+  padding: 0px 30px;
+}
 .user .header-wrapper {
   background-color: #ebedef;
   padding: 10px;
@@ -12779,7 +12782,76 @@ textarea.form-control-lg {
   outline: none;
   font-size: 14px;
 }
+.user .nav-tabs .nav-link {
+  color: rgb(19, 35, 65);
+  padding: 5px 12px;
+  border: 0;
+  font-size: 12px;
+}
+.user .nav-tabs .nav-link:focus {
+  border-bottom: 3px solid rgb(19, 35, 65);
+  font-weight: 700;
+}
+.user .nav-tabs .nav-link.active {
+  border-bottom: 3px solid rgb(19, 35, 65);
+  font-weight: 700;
+}
+.user .table-buttom .card {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.user .table-buttom .card span {
+  font-size: 12px;
+}
+.user .table-buttom .card .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.user .table-buttom .card .pagination .btn-pagination {
+  padding: 2px 8px;
+  font-size: 12px;
+  color: rgb(19, 35, 65);
+  background-color: #fff;
+  border: 1px solid rgb(19, 35, 65);
+  border-radius: 5px;
+}
 
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content .modal-header {
+  flex-direction: column-reverse;
+}
+.modal-content .modal-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.modal-content .modal-body {
+  padding: 10px 50px;
+}
+.modal-content .modal-body .form-label {
+  margin-bottom: 2px;
+}
+.modal-content .modal-footer {
+  justify-content: center;
+}
+
+@media (max-width: 991.98px) {
+  .dashboard {
+    padding: 0px 10px;
+  }
+  .user {
+    padding: 0px 10px;
+  }
+}
 * {
   font-family: "Nunito", sans-serif;
   margin: 0;
@@ -12827,6 +12899,29 @@ span.sub-title {
 }
 .btn.btn-filter:hover {
   opacity: 0.5;
+}
+.btn.btn-danger {
+  color: #fff;
+  padding: 5px 25px !important;
+  font-size: 14px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.btn.btn-outline-dark {
+  padding: 5px 20px !important;
+  font-size: 14px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.btn.btn-info {
+  padding: 5px 40px !important;
+  color: #fff;
+  font-size: 14px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .wrapper {

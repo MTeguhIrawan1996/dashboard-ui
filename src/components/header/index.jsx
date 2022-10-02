@@ -12,22 +12,33 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-// import routes from "../routes";
+import { routes } from "../../routes";
 
 const Header = () => {
-  const [path, setPath] = useState("");
-  const currentLocation = useLocation().pathname.split("/");
-  useEffect(() => {
-    let isCancle = false;
-    if (!isCancle) {
-      setPath(
-        currentLocation[1].charAt(0).toUpperCase() + currentLocation[1].slice(1)
-      );
-    }
-    return () => {
-      isCancle = true;
-    };
-  }, [currentLocation]);
+  const currentLocation = useLocation().pathname;
+
+  const getRouteName = (pathname, routes) => {
+    const currentRoute = routes.find((route) => route.path === pathname);
+    return currentRoute ? currentRoute.name : false;
+  };
+
+  const getBreadcrumbs = (location) => {
+    const breadcrumbs = [];
+    location.split("/").reduce((prev, curr, index, array) => {
+      const currentPathname = `${prev}/${curr}`;
+      const routeName = getRouteName(currentPathname, routes);
+      routeName &&
+        breadcrumbs.push({
+          pathname: currentPathname,
+          name: routeName,
+          active: index + 1 === array.length ? true : false,
+        });
+      return currentPathname;
+    });
+    return breadcrumbs;
+  };
+
+  const breadcrumbs = getBreadcrumbs(currentLocation);
 
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.sidebarShow);
@@ -43,7 +54,18 @@ const Header = () => {
         <CHeaderNav className="">
           <CBreadcrumb className="mb-0">
             <CBreadcrumbItem href="#">Loan Market</CBreadcrumbItem>
-            <CBreadcrumbItem active>{path}</CBreadcrumbItem>
+            {breadcrumbs.map((breadcrumb, index) => {
+              return (
+                <CBreadcrumbItem
+                  {...(breadcrumb.active
+                    ? { active: true }
+                    : { href: breadcrumb.pathname })}
+                  key={index}
+                >
+                  {breadcrumb.name}
+                </CBreadcrumbItem>
+              );
+            })}
           </CBreadcrumb>
         </CHeaderNav>
         <button className="btn btn-logout ms-auto">
