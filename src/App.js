@@ -11,15 +11,13 @@ const Home = React.lazy(() => import("./pages/home/index"));
 
 function App() {
   return (
-    <div className="App">
-      <HashRouter>
-        <Suspense fallback={loading}>
-          <Routes>
-            <Route path="*" name="Home" element={<Home />} />
-          </Routes>
-        </Suspense>
-      </HashRouter>
-    </div>
+    <HashRouter>
+      <Suspense fallback={loading}>
+        <Routes>
+          <Route path="*" name="Home" element={<Home />} />
+        </Routes>
+      </Suspense>
+    </HashRouter>
   );
 }
 

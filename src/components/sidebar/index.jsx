@@ -3,6 +3,8 @@ import { CSidebar, CSidebarBrand, CSidebarNav } from "@coreui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppSidebarNav } from "./AppSidebarNav";
 import { ILogo } from "../../assets";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.min.css";
 
 import navigation from "../../_nav";
 
@@ -26,7 +28,9 @@ const Sidebar = () => {
         </div>
       </CSidebarBrand>
       <CSidebarNav>
-        <AppSidebarNav items={navigation} />
+        <SimpleBar>
+          <AppSidebarNav items={navigation} />
+        </SimpleBar>
       </CSidebarNav>
     </CSidebar>
   );
