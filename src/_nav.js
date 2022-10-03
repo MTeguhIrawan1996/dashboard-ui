@@ -24,8 +24,8 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: "Add News",
-        to: "/buttons/buttons",
+        name: "News",
+        to: "/news",
       },
     ],
   },
