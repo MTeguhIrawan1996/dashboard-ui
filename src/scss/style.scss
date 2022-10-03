@@ -3,15 +3,15 @@
 $enable-ltr: true;
 $enable-rtl: true;
 
-@import "./scss/Variable";
+@import "Variable";
 // Import CoreUI for React components library
 @import "@coreui/coreui/scss/coreui";
 
-@import "./scss/Layout";
-@import "./scss/ContainerGrid";
-@import "./scss/Home";
-@import "./scss/Sidebar";
-@import "./scss/Header";
-@import "./scss/Dashboard";
-@import "./scss/User";
-@import "./scss/Mobile";
+@import "Layout";
+@import "ContainerGrid";
+@import "Home";
+@import "Sidebar";
+@import "Header";
+@import "Dashboard";
+@import "User";
+@import "Mobile";

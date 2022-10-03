@@ -1,5 +1,10 @@
 import React from "react";
-import { CSidebar, CSidebarBrand, CSidebarNav } from "@coreui/react";
+import {
+  CSidebar,
+  CSidebarBrand,
+  CSidebarNav,
+  CSidebarToggler,
+} from "@coreui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { AppSidebarNav } from "./AppSidebarNav";
 import { ILogo } from "../../assets";
@@ -11,10 +16,12 @@ import navigation from "../../_nav";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const sidebarShow = useSelector((state) => state.sidebarShow);
+  const unfoldable = useSelector((state) => state.sidebarUnfoldable);
 
   return (
     <CSidebar
       position="fixed"
+      unfoldable={unfoldable}
       visible={sidebarShow}
       onVisibleChange={(visible) => {
         dispatch({ type: "set", sidebarShow: visible });
@@ -32,6 +39,12 @@ const Sidebar = () => {
           <AppSidebarNav items={navigation} />
         </SimpleBar>
       </CSidebarNav>
+      <CSidebarToggler
+        className="d-none d-lg-flex"
+        onClick={() =>
+          dispatch({ type: "set", sidebarUnfoldable: !unfoldable })
+        }
+      />
     </CSidebar>
   );
 };
