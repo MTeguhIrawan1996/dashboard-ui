@@ -6,6 +6,13 @@ $enable-rtl: true;
 // Import CoreUI for React components library
 @import "@coreui/coreui/scss/coreui.scss";
 
+.wrapper {
+  width: 100%;
+  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+  will-change: auto;
+  @include transition(padding 0.15s);
+}
+
 @import "./scss/Variable";
 @import "./scss/ContainerGrid";
 @import "./scss/Home";
@@ -81,11 +88,4 @@ span.sub-title {
     font-size: 14px;
     height: max-content;
   }
-}
-
-.wrapper {
-  width: 100%;
-  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
-  will-change: auto;
-  @include transition(padding 0.15s);
 }
