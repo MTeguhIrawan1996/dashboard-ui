@@ -7,25 +7,25 @@ const _nav = [
   {
     component: CNavItem,
     name: "Dashboard",
-    to: "/dashboard",
+    to: "dashboard",
     icon: <CIcon icon={cilHome} height={15} />,
   },
   {
     component: CNavItem,
     name: "User Management",
-    to: "/user",
+    to: "users",
     icon: <CIcon icon={cilUser} height={15} />,
   },
   {
     component: CNavGroup,
     name: "News",
-    to: "/news",
+    to: "news",
     icon: <CIcon icon={cilPencil} height={15} />,
     items: [
       {
         component: CNavItem,
         name: "News",
-        to: "/news",
+        to: "news",
       },
     ],
   },

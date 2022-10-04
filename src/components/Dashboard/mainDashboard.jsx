@@ -1,7 +1,7 @@
 import React from "react";
 import CIcon from "@coreui/icons-react";
 import { cilArrowCircleRight, cilHome, cilUser } from "@coreui/icons";
-import Analytic from "./Analytic";
+import Analytic from "./analytic";
 
 const Dashboard = () => {
   return (

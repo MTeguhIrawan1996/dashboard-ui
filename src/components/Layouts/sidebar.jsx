@@ -4,14 +4,12 @@ import {
   CSidebarBrand,
   CSidebarNav,
   CSidebarToggler,
+  CNavItem,
+  CNavGroup,
 } from "@coreui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { AppSidebarNav } from "./AppSidebarNav";
-import { ILogo } from "../../assets";
-import SimpleBar from "simplebar-react";
-import "simplebar/dist/simplebar.min.css";
-
-import navigation from "../../_nav";
+import navigation from "_nav";
+import { AppSidebarNav } from "./appSidebarNav";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -28,16 +26,14 @@ const Sidebar = () => {
       }}
     >
       <CSidebarBrand className="d-flex flex-column align-items-start py-4 px-3 gap-2">
-        <img src={ILogo} alt="" style={{ maxHeight: 60 }} />
+        {/* <img src={ILogo} alt="" style={{ maxHeight: 60 }} /> */}
         <div className="title">
           <h1>Yosep Duna</h1>
           <span>Author</span>
         </div>
       </CSidebarBrand>
       <CSidebarNav>
-        <SimpleBar>
-          <AppSidebarNav items={navigation} />
-        </SimpleBar>
+        <AppSidebarNav items={navigation} />
       </CSidebarNav>
       <CSidebarToggler
         className="d-none d-lg-flex"

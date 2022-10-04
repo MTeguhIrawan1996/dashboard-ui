@@ -1,6 +1,6 @@
-import Sidebar from "./sidebar";
-import Header from "./header";
-import Content from "./content";
-import Footer from "./footer";
+import Content from "./Layouts/content";
+import Dashboard from "./Dashboard/mainDashboard";
+import UserManagement from "./UserManagement/mainUser";
+import News from "./News/mainNews";
 
-export { Sidebar, Header, Footer, Content };
+export { Content, Dashboard, UserManagement, News };

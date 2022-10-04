@@ -1,23 +1,33 @@
-import React, { Suspense } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
-import "./scss/style.scss";
+import React from "react";
+import { Content, Dashboard, News, UserManagement } from "components";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const loading = (
-  <div className="pt-3 text-center">
-    <div className="sk-spinner sk-spinner-pulse"></div>
-  </div>
-);
-const Home = React.lazy(() => import("./pages/home/index"));
+import "./assets/scss/style.scss";
 
 function App() {
   return (
-    <HashRouter>
-      <Suspense fallback={loading}>
-        <Routes>
-          <Route path="*" name="Home" element={<Home />} />
-        </Routes>
-      </Suspense>
-    </HashRouter>
+    <>
+      <Router>
+        <Content>
+          <Routes>
+            <Route path="/">
+              <Route index element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="users">
+                <Route index element={<UserManagement />} />
+                <Route path="detail/:userId" element={<h1>Detail User</h1>} />
+              </Route>
+              <Route path="news">
+                <Route index element={<News />} />
+                <Route path="news/:userId" element={<h1>Detail News</h1>} />
+              </Route>
+              <Route path="login" element={<h1>login</h1>} />
+              <Route path="*" element={<h1>404NF</h1>} />
+            </Route>
+          </Routes>
+        </Content>
+      </Router>
+    </>
   );
 }
 

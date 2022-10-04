@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CIcon from "@coreui/icons-react";
+import { format } from "date-fns";
 import {
   cilArrowLeft,
   cilArrowRight,
@@ -19,14 +20,17 @@ import {
   CTableHeaderCell,
   CTableRow,
 } from "@coreui/react";
-import ModalAdd from "./ModalAdd";
-import data from "../../json/dataTabel.json";
-import ModalUpdate from "./ModalUpdate";
+import data from "json/dataTabel.json";
 
-const UserManagement = () => {
+const News = () => {
   const [visible, setVisible] = useState(false);
   const [visibleUpdate, setVisibleUpdate] = useState(false);
-  const [datas, setDatas] = useState(data.user);
+  const [datas, setDatas] = useState(data.article);
+  const [date, setDate] = useState([
+    {
+      Date: new Date(),
+    },
+  ]);
   return (
     <div className="user">
       <button
@@ -34,9 +38,8 @@ const UserManagement = () => {
         onClick={() => setVisible(!visible)}
       >
         <CIcon icon={cilUserPlus} height={15} />
-        Add User
+        Create News
       </button>
-      <ModalAdd onClose={() => setVisible(false)} show={visible} />
       <div className="card card-body mt-3 px-3 px-md-5 py-3 py-md-4">
         <div className="row">
           <div className="col-12 header-wrapper rounded-2">
@@ -59,38 +62,11 @@ const UserManagement = () => {
             <CNav variant="tabs">
               <CNavItem>
                 <CNavLink href="#/user" active>
-                  Customer
+                  News List
                 </CNavLink>
               </CNavItem>
               <CNavItem>
-                <CNavLink href="#/user">Customer</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Author</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Super Admin</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">BDE</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Advisor</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Admin Office</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Participal</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Participal LMI</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Bank Officer</CNavLink>
-              </CNavItem>
-              <CNavItem>
-                <CNavLink href="#/user">Bank Admin</CNavLink>
+                <CNavLink href="#/user">Draf</CNavLink>
               </CNavItem>
             </CNav>
           </div>
@@ -101,9 +77,9 @@ const UserManagement = () => {
               >
                 <CTableRow>
                   <CTableHeaderCell scope="col">No</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Name</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Phone</CTableHeaderCell>
-                  <CTableHeaderCell scope="col">Email</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Type</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Title</CTableHeaderCell>
+                  <CTableHeaderCell scope="col">Publish</CTableHeaderCell>
                   <CTableHeaderCell scope="col">Action</CTableHeaderCell>
                 </CTableRow>
               </CTableHead>
@@ -112,9 +88,11 @@ const UserManagement = () => {
                   return (
                     <CTableRow key={i}>
                       <CTableHeaderCell scope="row">{i + 1}</CTableHeaderCell>
-                      <CTableDataCell>{user.name}</CTableDataCell>
-                      <CTableDataCell>{user.phone}</CTableDataCell>
-                      <CTableDataCell>{user.email}</CTableDataCell>
+                      <CTableDataCell>{user.type}</CTableDataCell>
+                      <CTableDataCell>{user.title}</CTableDataCell>
+                      <CTableDataCell>
+                        {format(date[0].Date, "dd MMMM yyyy")}
+                      </CTableDataCell>
                       <CTableDataCell>
                         <div className="btn-wrapper d-flex">
                           <button
@@ -133,10 +111,6 @@ const UserManagement = () => {
                 })}
               </CTableBody>
             </CTable>
-            <ModalUpdate
-              onClose={() => setVisibleUpdate(false)}
-              show={visibleUpdate}
-            />
           </div>
         </div>
       </div>
@@ -164,4 +138,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default News;
