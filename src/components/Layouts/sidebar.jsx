@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <CSidebar
       position="fixed"
-      unfoldable={unfoldable}
+      // unfoldable={unfoldable}
       visible={sidebarShow}
       onVisibleChange={(visible) => {
         dispatch({ type: "set", sidebarShow: visible });
@@ -35,12 +35,12 @@ const Sidebar = () => {
       <CSidebarNav>
         <AppSidebarNav items={navigation} />
       </CSidebarNav>
-      <CSidebarToggler
+      {/* <CSidebarToggler
         className="d-none d-lg-flex"
         onClick={() =>
           dispatch({ type: "set", sidebarUnfoldable: !unfoldable })
         }
-      />
+      /> */}
     </CSidebar>
   );
 };
